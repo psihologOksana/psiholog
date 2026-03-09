@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Предсвадебное консультирование | Оксана Плесовских</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: #8aceff;
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            width: 100%;
+            max-width: 1650px;
+            background: white;
+            border-radius: 60px 60px 0 0;
+            padding: 25px 30px;
+            margin-bottom: 2px;
+        }
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .nav-item {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 8px 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #6b4f8c;
+            border-bottom-color: #ffdab9;
+        }
+        .card {
+            max-width: 1650px;
+            width: 100%;
+            background: white;
+            border-radius: 0 0 70px 70px;
+            padding: 50px 40px;
+            box-shadow: 0 40px 50px rgba(0, 0, 0, 0.2);
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #6b4f8c;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: #f8f8f8;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background: #ffdab9;
+            transform: translateX(-5px);
+        }
+        .back-button:before {
+            content: '←';
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        .service-detail {
+            background: #f8f8f8;
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+        .service-detail-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .service-detail-icon {
+            font-size: 80px;
+            background: white;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .service-detail-title { flex: 1; }
+        .service-detail-title h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        .service-detail-price {
+            font-size: 42px;
+            font-weight: 800;
+            color: #6b4f8c;
+        }
+        .service-detail-section { margin-bottom: 30px; }
+        .service-detail-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        .service-detail-section p {
+            font-size: 18px;
+            color: #4a4a4a;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        .service-detail-list {
+            list-style: none;
+        }
+        .service-detail-list li {
+            font-size: 18px;
+            color: #4a4a4a;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .service-detail-list li:before {
+            content: '✓';
+            color: #6b4f8c;
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+        .service-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .button {
+            display: inline-block;
+            background: #ffdab9;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 36px;
+            font-weight: 700;
+            padding: 15px 35px;
+            border-radius: 70px;
+            box-shadow: 0 6px 0 #e6c5a8;
+            border: none;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+        .button:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #e6c5a8;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #eaeaea;
+            text-align: center;
+            color: #4a4a4a;
+            font-size: 18px;
+        }
+        @media (max-width: 900px) {
+            .service-detail-header { flex-direction: column; text-align: center; }
+            .service-detail-title h1 { font-size: 36px; }
+            .service-detail-price { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-item">ГЛАВНАЯ</a>
+            <a href="index.html#services" class="nav-item">УСЛУГИ И ЦЕНЫ</a>
+            <a href="index.html#online" class="nav-item">ОНЛАЙН</a>
+            <a href="index.html#offline" class="nav-item">ОЧНЫЙ ПРИЕМ</a>
+            <a href="index.html#about" class="nav-item">ОБО МНЕ</a>
+            <a href="index.html#faq" class="nav-item">FAQ</a>
+            <a href="index.html#contact" class="nav-item">КОНТАКТЫ</a>
+        </nav>
+    </div>
+    <div class="card">
+        <a href="index.html#services" class="back-button">Назад к услугам</a>
+        
+        <div class="service-detail">
+            <div class="service-detail-header">
+                <div class="service-detail-icon">💍</div>
+                <div class="service-detail-title">
+                    <h1>Предсвадебное консультирование</h1>
+                    <div class="service-detail-price">4 500 ₽ / 120 мин</div>
+                </div>
+            </div>
+            
+            <div class="service-detail-section">
+                <h2>О консультации</h2>
+                <p>Консультирование пары, планирующей узаконить отношения. Это возможность обсудить все главное и важное сейчас, чтобы избежать проблем в будущем. Помогаю будущим супругам лучше понять друг друга и создать прочный фундамент для счастливой семейной жизни.</p>
+            </div>
+            
+            <div class="service-detail-section">
+                <h2>Что мы обсуждаем</h2>
+                <ul class="service-detail-list">
+                    <li>Ожидания от брака и семейной жизни</li>
+                    <li>Распределение ролей и обязанностей</li>
+                    <li>Финансовые вопросы и планирование бюджета</li>
+                    <li>Отношения с родственниками</li>
+                    <li>Планирование детей и взгляды на воспитание</li>
+                    <li>Способы решения конфликтов</li>
+                    <li>Совместные цели и ценности</li>
+                </ul>
+            </div>
+            
+            <div class="service-detail-section">
+                <h2>Что вы получите</h2>
+                <ul class="service-detail-list">
+                    <li>Глубокое понимание друг друга</li>
+                    <li>Умение договариваться о важном</li>
+                    <li>Прочный фундамент для брака</li>
+                    <li>Профилактику будущих конфликтов</li>
+                    <li>Уверенность в своем выборе</li>
+                </ul>
+            </div>
+            
+            <div class="service-detail-section">
+                <h2>Формат</h2>
+                <p>✅ Очно (Вологда) — 120 минут<br>
+                ✅ Возможно проведение онлайн</p>
+                <p style="margin-top: 10px; font-style: italic;">* Консультация проводится с обоими партнерами</p>
+            </div>
+            
+            <div class="service-cta">
+                <a href="index.html#contact" class="button">Записаться</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 Оксана Плесовских — Медицинский, семейный и перинатальный психолог | Вологда</p>
+        </div>
+    </div>
+</body>
+</html>
