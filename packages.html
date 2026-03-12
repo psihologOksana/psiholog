@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Пакеты консультаций | Оксана Плесовских</title>
+    <!-- Подключаем шрифт Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #8aceff;
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ШАПКА */
+        .header {
+            width: 100%;
+            max-width: 1650px;
+            background: white;
+            border-radius: 60px 60px 0 0;
+            padding: 25px 30px;
+            margin-bottom: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-item {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 8px 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: #6b4f8c;
+            border-bottom-color: #ffdab9;
+        }
+
+        /* ОСНОВНАЯ КАРТОЧКА */
+        .card {
+            max-width: 1650px;
+            width: 100%;
+            background: white;
+            border-radius: 0 0 70px 70px;
+            padding: 50px 40px;
+            box-shadow: 0 40px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* КНОПКА НАЗАД */
+        .back-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #6b4f8c;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: #f8f8f8;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #ffdab9;
+            transform: translateX(-5px);
+        }
+
+        .back-button:before {
+            content: '←';
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        /* ЗАГОЛОВОК СТРАНИЦЫ */
+        .page-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            font-size: 22px;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ВАЖНЫЙ БЛОК С ОБОСНОВАНИЕМ (ИЗ ПРИМЕРА) */
+        .why-block {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 2px solid #ffdab9;
+            position: relative;
+        }
+
+        .why-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #6b4f8c;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .why-list {
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .why-list li {
+            font-size: 18px;
+            color: #4a4a4a;
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .why-list li:before {
+            content: '🧠';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 24px;
+        }
+
+        .why-list li strong {
+            color: #6b4f8c;
+            font-weight: 700;
+            font-size: 19px;
+        }
+
+        .why-quote {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid #6b4f8c;
+            font-size: 18px;
+            color: #1a1a1a;
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ПАКЕТЫ */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .package-card {
+            background: #f8f8f8;
+            border-radius: 30px;
+            padding: 35px 25px;
+            border: 2px solid #eaeaea;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-color: #6b4f8c;
+            box-shadow: 0 20px 40px rgba(107, 79, 140, 0.15);
+        }
+
+        .package-popular {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #6b4f8c;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .package-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .package-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .package-count {
+            font-size: 16px;
+            color: #6b4f8c;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+            background: #ffdab9;
+            padding: 5px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .package-prices {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .package-price-item {
+            margin-bottom: 10px;
+        }
+
+        .package-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: #6b4f8c;
+        }
+
+        .package-price small {
+            font-size: 16px;
+            font-weight: 400;
+            color: #4a4a4a;
+        }
+
+        .package-price-old {
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .package-savings {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 20px 0;
+            flex-grow: 1;
+        }
+
+        .package-features li {
+            font-size: 16px;
+            color: #4a4a4a;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .package-features li:before {
+            content: '✓';
+            color: #6b4f8c;
+            font-weight: 700;
+            font-size: 18px;
+            position: absolute;
+            left: 0;
+        }
+
+        .package-footer {
+            margin-top: auto;
+        }
+
+        .button {
+            display: block;
+            background: #ffdab9;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 700;
+            padding: 15px 20px;
+            border-radius: 60px;
+            box-shadow: 0 6px 0 #e6c5a8;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.1s ease;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #e6c5a8;
+        }
+
+        .button.purple {
+            background: #6b4f8c;
+            color: white;
+            box-shadow: 0 6px 0 #5a3e78;
+        }
+
+        .button.purple:hover {
+            background: #5a3e78;
+        }
+
+        /* СРАВНЕНИЕ */
+        .comparison-section {
+            background: #f8f8f8;
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .comparison-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .comparison-item {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .comparison-item h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #6b4f8c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            font-size: 17px;
+            color: #4a4a4a;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .comparison-list li:before {
+            content: '✓';
+            color: #6b4f8c;
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        /* КАК ЭТО РАБОТАЕТ */
+        .how-it-works {
+            background: linear-gradient(135deg, #ffdab9 0%, #ffe9d4 100%);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .how-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .step {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 20px 10px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #6b4f8c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 15px;
+        }
+
+        .step-text {
+            font-size: 15px;
+            color: #4a4a4a;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin: 50px 0;
+        }
+
+        .faq-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: #f8f8f8;
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 700;
+            color: #6b4f8c;
+            margin-bottom: 15px;
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        /* КОНТАКТЫ */
+        .contact-block {
+            background: #6b4f8c;
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-block h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .contact-block p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-button {
+            background: white;
+            color: #6b4f8c;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* ФУТЕР */
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #eaeaea;
+            text-align: center;
+            color: #4a4a4a;
+            font-size: 18px;
+        }
+
+        /* АДАПТАЦИЯ */
+        @media (max-width: 1200px) {
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .why-list li {
+                font-size: 16px;
+                padding-left: 35px;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+            
+            .contact-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ШАПКА -->
+    <div class="header">
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-item">ГЛАВНАЯ</a>
+            <a href="index.html#services" class="nav-item">УСЛУГИ И ЦЕНЫ</a>
+            <a href="index.html#online" class="nav-item">ОНЛАЙН</a>
+            <a href="index.html#offline" class="nav-item">ОЧНЫЙ ПРИЕМ</a>
+            <a href="index.html#about" class="nav-item">ОБО МНЕ</a>
+            <a href="index.html#faq" class="nav-item">FAQ</a>
+            <a href="index.html#contact" class="nav-item">КОНТАКТЫ</a>
+        </nav>
+    </div>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="card">
+        <!-- КНОПКА НАЗАД -->
+        <a href="index.html#services" class="back-button">Назад к услугам</a>
+
+        <!-- ЗАГОЛОВОК -->
+        <h1 class="page-title">💝 Пакеты консультаций</h1>
+        <p class="page-subtitle">Выберите удобный формат работы и получите скидку до 20%</p>
+
+        <!-- БЛОК "ПОЧЕМУ ЭТО ТАК?" (ИЗ ВАШЕГО ПРИМЕРА) -->
+        <div class="why-block">
+            <h2 class="why-title">Почему пакет из 5, 10 или 20 консультаций?</h2>
+            <ul class="why-list">
+                <li>
+                    <strong>Нашему мозгу требуется время,</strong> чтобы перестроить нейронные связи и выработать новые адаптивные поведенческие и ментальные стратегии. За одну встречу невозможно изменить то, что формировалось годами.
+                </li>
+                <li>
+                    <strong>Психолог – не телепат и не волшебник,</strong> ему требуется время узнать всю историю вашей жизни, получить глубокое понимание ваших личностных особенностей, увидеть паттерны и взаимосвязи.
+                </li>
+                <li>
+                    <strong>Длительная работа способствует созданию доверительных отношений,</strong> что является ключевым фактором успешной терапии. Чем дольше вы работаете с одним специалистом, тем легче вам открываться и рассматривать самые сложные темы. Важным компонентом являются именно терапевтические отношения, а не только упражнения и техники.
+                </li>
+                <li>
+                    <strong>Работа над собой требует времени и постоянства.</strong> Еженедельные встречи с психологом создают фокус на изменениях и помогают делать вашу работу над собой более целенаправленной. Регулярность важнее интенсивности.
+                </li>
+                <li>
+                    <strong>Длительная работа помогает не только преодолеть текущие трудности</strong> (справиться с симптомами), но и способствует глубоким изменениям и улучшению качества жизни в долгосрочной перспективе. Это инвестиция в себя на годы вперед.
+                </li>
+            </ul>
+            <div class="why-quote">
+                🌟 Краткосрочные психотерапевтические подходы обычно предполагают не менее 10 консультаций. Именно столько времени нужно, чтобы закрепить новые паттерны поведения и мышления. Улучшение вы заметите уже после 5 встреч, но для устойчивого результата важно пройти полный курс.
+            </div>
+        </div>
+
+        <!-- ПАКЕТЫ 5-10-20 -->
+        <div class="packages-grid">
+            <!-- ПАКЕТ 5 КОНСУЛЬТАЦИЙ -->
+            <div class="package-card">
+                <div class="package-icon">🌱</div>
+                <div class="package-name">Стартовый</div>
+                <div class="package-count">5 консультаций</div>
+                
+                <div class="package-prices">
+                    <div class="package-price-item">
+                        <span class="package-price">24 750 ₽</span> <small>онлайн</small>
+                        <span class="package-price-old">27 500 ₽</span>
+                    </div>
+                    <div class="package-price-item">
+                        <span class="package-price">27 000 ₽</span> <small>очно</small>
+                        <span class="package-price-old">30 000 ₽</span>
+                    </div>
+                    <div class="package-savings">Экономия 2 750 - 3 000 ₽</div>
+                </div>
+
+                <ul class="package-features">
+                    <li>5 встреч по 90 минут</li>
+                    <li>Срок действия: 3 месяца</li>
+                    <li>Поддержка в мессенджерах</li>
+                    <li>Домашние задания</li>
+                    <li>Первые результаты уже через месяц</li>
+                </ul>
+
+                <div class="package-footer">
+                    <a href="index.html#contact" class="button">Выбрать стартовый</a>
+                </div>
+            </div>
+
+            <!-- ПАКЕТ 10 КОНСУЛЬТАЦИЙ (РЕКОМЕНДУЮ) -->
+            <div class="package-card" style="border: 3px solid #6b4f8c; transform: scale(1.02);">
+                <div class="package-popular">РЕКОМЕНДУЮ</div>
+                <div class="package-icon">⭐</div>
+                <div class="package-name">Оптимальный</div>
+                <div class="package-count">10 консультаций</div>
+                
+                <div class="package-prices">
+                    <div class="package-price-item">
+                        <span class="package-price">44 625 ₽</span> <small>онлайн</small>
+                        <span class="package-price-old">52 500 ₽</span>
+                    </div>
+                    <div class="package-price-item">
+                        <span class="package-price">48 750 ₽</span> <small>очно</small>
+                        <span class="package-price-old">57 500 ₽</span>
+                    </div>
+                    <div class="package-savings">Экономия 7 875 - 8 750 ₽</div>
+                </div>
+
+                <ul class="package-features">
+                    <li>10 встреч по 90 минут</li>
+                    <li>Срок действия: 6 месяцев</li>
+                    <li>Приоритетная поддержка 24/7</li>
+                    <li>Домашние задания + материалы</li>
+                    <li>Личный кабинет с заметками</li>
+                    <li>Устойчивый результат</li>
+                </ul>
+
+                <div class="package-footer">
+                    <a href="index.html#contact" class="button purple">Выбрать оптимальный</a>
+                </div>
+            </div>
+
+            <!-- ПАКЕТ 20 КОНСУЛЬТАЦИЙ -->
+            <div class="package-card">
+                <div class="package-icon">🌟</div>
+                <div class="package-name">Максимальный</div>
+                <div class="package-count">20 консультаций</div>
+                
+                <div class="package-prices">
+                    <div class="package-price-item">
+                        <span class="package-price">84 000 ₽</span> <small>онлайн</small>
+                        <span class="package-price-old">105 000 ₽</span>
+                    </div>
+                    <div class="package-price-item">
+                        <span class="package-price">92 000 ₽</span> <small>очно</small>
+                        <span class="package-price-old">115 000 ₽</span>
+                    </div>
+                    <div class="package-savings">Экономия 21 000 - 23 000 ₽</div>
+                </div>
+
+                <ul class="package-features">
+                    <li>20 встреч по 90 минут</li>
+                    <li>Срок действия: 12 месяцев</li>
+                    <li>Поддержка 24/7 в мессенджерах</li>
+                    <li>Домашние задания + материалы</li>
+                    <li>Личный кабинет с заметками</li>
+                    <li>Бонус: сессия для партнера</li>
+                    <li>Глубинная трансформация</li>
+                </ul>
+
+                <div class="package-footer">
+                    <a href="index.html#contact" class="button">Выбрать максимальный</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- СРАВНЕНИЕ РАЗОВЫХ И ПАКЕТНЫХ КОНСУЛЬТАЦИЙ -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Разовые консультации vs Пакеты</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h3>📝 Разовые</h3>
+                    <ul class="comparison-list">
+                        <li>3 500 ₽ за 90 минут</li>
+                        <li>Оплата каждой встречи отдельно</li>
+                        <li>Нет фиксированной скидки</li>
+                        <li>Можно остановиться в любой момент</li>
+                        <li>Подходит для разовых вопросов</li>
+                        <li>Меньше мотивации на регулярность</li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <h3>💝 Пакетные</h3>
+                    <ul class="comparison-list">
+                        <li>от 4 950 ₽ за консультацию</li>
+                        <li>Экономия до 20%</li>
+                        <li>Фиксированная стоимость курса</li>
+                        <li>Выше приверженность терапии</li>
+                        <li>Лучший результат за счет регулярности</li>
+                        <li>Поддержка между сессиями</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- КАК ЭТО РАБОТАЕТ -->
+        <div class="how-it-works">
+            <h2 class="how-title">Как начать работать с пакетом</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Выбираете пакет</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Оставляете заявку</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Обсуждаем детали</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Оплачиваете</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Начинаем работу</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h2 class="faq-title">Частые вопросы о пакетах</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли заморозить пакет?</div>
+                    <div class="faq-answer">Да, по уважительной причине (болезнь, отпуск, декрет) можно сделать паузу до 1 месяца.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Что если не хватит консультаций?</div>
+                    <div class="faq-answer">Можно докупить отдельно или оформить следующий пакет со скидкой на остаток.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли оплатить частями?</div>
+                    <div class="faq-answer">Для пакетов от 10 консультаций возможна рассрочка: 50% предоплата, остальное в течение месяца.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Пакет на двоих (пару)?</div>
+                    <div class="faq-answer">Да, пакеты действуют и на семейные консультации. Стоимость рассчитывается индивидуально.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли вернуть деньги?</div>
+                    <div class="faq-answer">За неиспользованные консультации — пропорционально остатку, минус 10% за обработку.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Какой пакет выбрать?</div>
+                    <div class="faq-answer">Если вы хотите попробовать — 5 консультаций. Для устойчивого результата — 10. Для глубоких изменений — 20.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- КОНТАКТНЫЙ БЛОК -->
+        <div class="contact-block">
+            <h3>Остались сомнения?</h3>
+            <p>Напишите мне, и я помогу подобрать оптимальный пакет под ваш запрос</p>
+            <div class="contact-buttons">
+                <a href="https://vk.com/oksanaplesovskikh" target="_blank" class="contact-button">Вконтакте</a>
+                <a href="index.html#contact" class="contact-button">Форма связи</a>
+            </div>
+        </div>
+
+        <!-- ПРИМЕЧАНИЕ -->
+        <p style="font-size: 14px; color: #888; text-align: center; margin-top: 30px;">
+            * Пакеты не суммируются с другими акциями и скидками. Цены действительны на 2024 год.
+        </p>
+
+        <!-- ФУТЕР -->
+        <div class="footer">
+            <p>© 2024 Оксана Плесовских — Медицинский, семейный и перинатальный психолог | Вологда</p>
+            <p style="margin-top: 10px; font-size: 16px;">Очно и онлайн</p>
+        </div>
+    </div>
+</body>
+</html>
