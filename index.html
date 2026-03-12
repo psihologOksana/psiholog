@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -377,6 +376,93 @@
             overflow-wrap: break-word;
         }
 
+        /* Пакеты консультаций */
+        .packages-section {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 35px;
+            margin: 40px 0;
+            border: 2px solid #ffdab9;
+        }
+
+        .packages-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #6b4f8c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(107, 79, 140, 0.1);
+        }
+
+        .package-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .package-discount {
+            background: #ffdab9;
+            color: #6b4f8c;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .package-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #6b4f8c;
+            margin-bottom: 10px;
+        }
+
+        .package-price small {
+            font-size: 16px;
+            font-weight: 400;
+            color: #4a4a4a;
+        }
+
+        .package-note {
+            font-size: 14px;
+            color: #4a4a4a;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .package-desc {
+            font-size: 16px;
+            color: #4a4a4a;
+            line-height: 1.5;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 15px;
+            text-align: left;
+        }
+
         /* FAQ */
         .faq-grid {
             display: grid;
@@ -572,6 +658,63 @@
             color: #e6c5a8;
         }
 
+        /* Стили для спойлера сертификатов */
+        .certificates-details {
+            margin-bottom: 20px;
+        }
+
+        .certificates-details summary {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            cursor: pointer;
+            padding: 10px 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .certificates-details summary:hover {
+            color: #6b4f8c;
+        }
+
+        .certificates-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .certificates-details summary::before {
+            content: '▶';
+            color: #6b4f8c;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .certificates-details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .certificates-details [style*="overflow-y: auto"]::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .certificates-details [style*="overflow-y: auto"]::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .certificates-details [style*="overflow-y: auto"]::-webkit-scrollbar-thumb {
+            background: #6b4f8c;
+            border-radius: 10px;
+        }
+
+        .certificates-details [style*="overflow-y: auto"]::-webkit-scrollbar-thumb:hover {
+            background: #5a3e78;
+        }
+
         /* ========== МЯГКАЯ АДАПТАЦИЯ ========== */
         
         /* Для планшетов */
@@ -734,6 +877,18 @@
                 font-size: 20px;
                 padding: 12px 25px;
             }
+
+            .certificates-details summary {
+                font-size: 20px;
+            }
+            
+            .certificates-details summary span {
+                font-size: 14px !important;
+            }
+
+            .packages-title {
+                font-size: 26px;
+            }
         }
 
         /* Для очень маленьких телефонов */
@@ -796,11 +951,11 @@
                     <div class="stats">
                         <div class="stat-item">
                             <span class="stat-number">15+ лет</span>
-                            <span class="stat-label">опыта работы</span>
+                            <span class="stat-label">опыта и практики</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">300+</span>
-                            <span class="stat-label">довольных семей</span>
+                            <span class="stat-label">семей получили помощь</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">100%</span>
@@ -824,7 +979,7 @@
                     <div class="service-icon">👨‍👩‍👧</div>
                     <div class="service-title">Семейное/парное консультирование</div>
                     <div class="service-price">4 500 ₽ / 120 мин</div>
-                    <div class="service-desc">Восстановление доверия, кризисы, проблемы взаимоотношений, непонимание, постоянные ссоры, эмоциональная отстраненность, газлайтинг, измена, ревность, конфликты, предразводное состояние.</div>
+                    <div class="service-desc">Восстановление доверия, кризисы, проблемы взаимоотношений, непонимание, постоянные ссоры, эмоциональная отстраненность, измена, ревность, конфликты, предразводное состояние.</div>
                     <span class="service-badge">120 минут</span>
                     <span class="service-badge">очно/онлайн</span>
                 </a>
@@ -853,7 +1008,7 @@
             <div class="services-grid">
                 <a href="service-perinatal-birth.html" class="service-card">
                     <div class="service-icon">👶</div>
-                    <div class="service-title">Экспресс курс подготовки к родам</div>
+                    <div class="service-title">Экспресс курс подготовки к родам (групповое)</div>
                     <div class="service-price">2 000 ₽ / 180 мин</div>
                     <div class="service-desc">Подготовка к благополучным родам и материнству, партнерские роды, доабортное и постабортное консультирование, страхи беременных, послеродовая депрессия, проблемы семейных взаимоотношений после рождения ребёнка, послеродовое сопровождение.</div>
                     <span class="service-badge">3 встречи</span>
@@ -878,20 +1033,13 @@
                     <span class="service-badge">онлайн</span>
                 </a>
 
-                <a href="service-perinatal-loss.html" class="service-card">
-                    <div class="service-icon">🕊️</div>
-                    <div class="service-title">Перинатальные утраты</div>
-                    <div class="service-price">3 000 ₽ / 60 мин</div>
-                    <div class="service-desc">Поддержка и помощь в проживании тяжелой утраты.</div>
-                    <span class="service-badge">60 минут</span>
-                    <span class="service-badge">очно/онлайн</span>
-                </a>
+                <!-- Удален блок "Перинатальные утраты" по просьбе заказчика -->
 
                 <a href="service-perinatal-pregnancy.html" class="service-card">
                     <div class="service-icon">💝</div>
                     <div class="service-title">Сопровождение сложной беременности</div>
                     <div class="service-price">3 500 ₽ / 60 мин</div>
-                    <div class="service-desc">Психологическая поддержка при сложной беременности, работа с тревогой и страхами.</div>
+                    <div class="service-desc">Психологическая поддержка при сложной беременности, работа с тревогой и страхами. Подготовка и сопровождение процедуры ЭКО.</div>
                     <span class="service-badge">60 минут</span>
                     <span class="service-badge">очно/онлайн</span>
                 </a>
@@ -920,6 +1068,23 @@
             </div>
         </section>
 
+        <!-- ПАКЕТЫ КОНСУЛЬТАЦИЙ (НОВЫЙ БЛОК) -->
+        <div class="packages-section">
+    <h3 class="packages-title">💝 Пакеты консультаций со скидкой</h3>
+    <div class="packages-grid">
+        <div class="package-card">
+            <div class="package-name">Пакет 5 консультаций</div>
+            <div class="package-discount">скидка 10%</div>
+            <div class="package-price">от ? ₽ <small>онлайн/очно</small></div>
+            <div class="package-price">до ? ₽ <small>онлайн/очно</small></div>
+            <div class="package-desc">
+                Даже краткосрочные психотерапевтические подходы предполагают не менее 10 консультаций, обычно требуется 10–20 сессий, чтобы получить результат, хотя улучшение состояния вы можете заметить уже после 5 консультаций, а иногда и после первой встречи с психологом.
+            </div>
+            <a href="packages.html" class="button small" style="margin: 0 auto; font-size: 20px; padding: 10px 25px;">Подробнее о пакетах</a>
+        </div>
+    </div>
+</div>
+
         <!-- ОНЛАЙН КОНСУЛЬТАЦИЯ -->
         <section id="online">
             <h2 class="section-title">Онлайн консультация</h2>
@@ -946,7 +1111,7 @@
                     </div>
                     <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
                         <div style="font-size: 36px; margin-bottom: 10px;">👶</div>
-                        <div style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">Подготовка к родам</div>
+                        <div style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">Индивидуальная подготовка к родам</div>
                         <div style="color: #6b4f8c; font-size: 22px; font-weight: 700;">3 500 ₽</div>
                         <div style="color: #4a4a4a;">90 минут</div>
                     </div>
@@ -960,7 +1125,7 @@
                         <div style="font-size: 36px; margin-bottom: 10px;">🤱</div>
                         <div style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">Партнерские роды</div>
                         <div style="color: #6b4f8c; font-size: 22px; font-weight: 700;">3 500 ₽</div>
-                        <div style="color: #4a4a4a;">90 минут</div>
+                        <div style="color: #4a4a4a;">120 минут</div>
                     </div>
                 </div>
             </div>
@@ -998,7 +1163,7 @@
                                     <div style="color: #4a4a4a; font-size: 14px;">90 мин</div>
                                 </div>
                                 <div style="background: #f8f8f8; padding: 15px; border-radius: 15px; text-align: center;">
-                                    <div style="font-weight: 700;">Экспресс курс родов</div>
+                                    <div style="font-weight: 700;">Экспресс курс родов (групповое)</div>
                                     <div style="color: #6b4f8c; font-size: 20px; font-weight: 700;">2 000 ₽</div>
                                     <div style="color: #4a4a4a; font-size: 14px;">180 мин (3 встречи)</div>
                                 </div>
@@ -1016,7 +1181,7 @@
                                 <div style="color: #4a4a4a; font-size: 14px;">120 мин</div>
                             </div>
                             
-                            <!-- КНОПКА - теперь красиво по центру -->
+                            <!-- КНОПКА -->
                             <div style="text-align: center; margin-top: 10px;">
                                 <a href="#contact" class="button" style="margin-left: 0; font-size: 28px; padding: 15px 40px; display: inline-block; width: auto; min-width: 300px;">Записаться на очный прием</a>
                             </div>
@@ -1059,7 +1224,7 @@
                             <div style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                                 <div style="font-size: 32px; margin-bottom: 10px;">👨‍👩‍👧</div>
                                 <h4 style="font-size: 20px; margin-bottom: 10px; color: #6b4f8c;">Семейные консультации</h4>
-                                <p style="font-size: 16px; color: #4a4a4a;">Восстановление доверия, кризисы, проблемы взаимоотношений, непонимание, постоянные ссоры, эмоциональная отстраненность, газлайтинг, измена, ревность, конфликты, предразводное состояние.</p>
+                                <p style="font-size: 16px; color: #4a4a4a;">Восстановление доверия, кризисы, проблемы взаимоотношений, непонимание, постоянные ссоры, эмоциональная отстраненность, измена, ревность, конфликты, предразводное состояние.</p>
                             </div>
                             
                             <div style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
@@ -1071,7 +1236,7 @@
                             <div style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                                 <div style="font-size: 32px; margin-bottom: 10px;">🤰</div>
                                 <h4 style="font-size: 20px; margin-bottom: 10px; color: #6b4f8c;">Перинатальная психология</h4>
-                                <p style="font-size: 16px; color: #4a4a4a;">Подготовка к благополучным родам и материнству, партнерские роды, доабортное и постабортное консультирование, страхи беременных, послеродовая депрессия, проблемы семейных взаимоотношений после рождения ребёнка, послеродовое сопровождение.</p>
+                                <p style="font-size: 16px; color: #4a4a4a;">Подготовка к благополучным родам и материнству, партнерские роды, доабортное консультирование, страхи беременных, послеродовая депрессия, проблемы семейных взаимоотношений после рождения ребёнка, послеродовое сопровождение. Подготовка и сопровождение ЭКО.</p>
                             </div>
                             
                             <div style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
@@ -1104,93 +1269,97 @@
                     
                     <!-- Дополнительное образование (сертификаты) -->
                     <div style="margin-top: 30px;">
-                        <h3 style="font-size: 24px; margin-bottom: 15px; color: #1a1a1a;">📜 Дополнительное образование и сертификаты</h3>
-                        
-                        <div style="max-height: 300px; overflow-y: auto; padding-right: 15px; background: #f8f8f8; border-radius: 15px; padding: 20px;">
-                            <ul style="list-style: none;">
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Методы и технологии психологического консультирования женщин с кризисной беременностью», 2010 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Диалог специалиста и беременной женщины в подготовке к материнству» 2012 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Свидетельство о повышении квалификации «Актуальные вопросы медицинской психологии», Ярославская государственная медицинская академия, 2013 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Сопровождение несовершеннолетних беременных» 2015 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Психология супружеских отношений» 2015 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Профессиональная этика в психолого-педагогической деятельности» 2015 г
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Психологическое сопровождение родительства» 2015 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Работа с комплексной психотравмой у детей и взрослых» 2015 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Психологические основы взаимодействия медицинского персонала с пациентами», РАНХиГС, 2016 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Обучение на курсе «Практическое противоабортное консультирование кризисных беременных» 2016г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Курс повышения квалификации «Практическая перинатальная психология», Восточно-Европейский институт психоанализа, 2017 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Курс повышения квалификации «Медицинская (клиническая) психология», Международный институт повышения квалификации, 2021 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Курс повышения квалификации «Грудное вскармливание», АКТИОН МФЭЦР, 2022 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Курс «Доабортное психологическое консультирование в женских консультациях», 2022 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Курс «Психологическая реабилитация», НМО, 2023г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Курс профессиональной переподготовки "Когнитивно-поведенческая терапия", НАДПО, 2024 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Оказание психологической помощи в кризисных ситуациях», Международный институт развития КПТ, 2024 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Практика семейного консультирования», НАДПО, 2025 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    Сертификат «Эмоционально-фокусированная терапия», Академия доказательной психологии, 2025 г.
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
-                                    «Клиническая семейная психотерапия. Подготовка уровня семейный психотерапевт практик» в Институте психотерапии им. Б.Д. Карвасарского, 2026 г.
-                                </li>
-                            </ul>
-                        </div>
-                        <p style="font-size: 14px; color: #4a4a4a; margin-top: 10px; text-align: right;">* Прокрутите, чтобы увидеть все сертификаты</p>
+                        <details class="certificates-details">
+                            <summary>
+                                📜 Дополнительное образование и сертификаты 
+                                <span style="color: #6b4f8c; font-size: 16px; font-weight: normal; margin-left: 10px;">(нажмите, чтобы развернуть)</span>
+                            </summary>
+                            
+                            <div style="background: #f8f8f8; border-radius: 15px; padding: 25px; margin-top: 20px; max-height: 400px; overflow-y: auto;">
+                                <ul style="list-style: none;">
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Методы и технологии психологического консультирования женщин с кризисной беременностью», 2010 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Диалог специалиста и беременной женщины в подготовке к материнству» 2012 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Свидетельство о повышении квалификации «Актуальные вопросы медицинской психологии», Ярославская государственная медицинская академия, 2013 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Сопровождение несовершеннолетних беременных» 2015 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Психология супружеских отношений» 2015 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Профессиональная этика в психолого-педагогической деятельности» 2015 г
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Психологическое сопровождение родительства» 2015 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Работа с комплексной психотравмой у детей и взрослых» 2015 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Психологические основы взаимодействия медицинского персонала с пациентами», РАНХиГС, 2016 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Обучение на курсе «Практическое противоабортное консультирование кризисных беременных» 2016г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Курс повышения квалификации «Практическая перинатальная психология», Восточно-Европейский институт психоанализа, 2017 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Курс повышения квалификации «Медицинская (клиническая) психология», Международный институт повышения квалификации, 2021 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Курс повышения квалификации «Грудное вскармливание», АКТИОН МФЭЦР, 2022 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Курс «Доабортное психологическое консультирование в женских консультациях», 2022 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Курс «Психологическая реабилитация», НМО, 2023г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Курс профессиональной переподготовки "Когнитивно-поведенческая терапия", НАДПО, 2024 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Оказание психологической помощи в кризисных ситуациях», Международный институт развития КПТ, 2024 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Практика семейного консультирования», НАДПО, 2025 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        Сертификат «Эмоционально-фокусированная терапия», Академия доказательной психологии, 2025 г.
+                                    </li>
+                                    <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #6b4f8c;">🤝</span>
+                                        «Клиническая семейная психотерапия. Подготовка уровня семейный психотерапевт практик» в Институте психотерапии им. Б.Д. Карвасарского, 2026 г.
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
                     </div>
                     
                     <!-- Методы работы -->
@@ -1209,7 +1378,7 @@
                 
                 <div class="about-stats">
                     <span class="about-stat-number">15+</span>
-                    <span class="about-stat-label">лет опыта в роддоме и женской консультации</span>
+                    <span class="about-stat-label">лет опыта и практики</span>
                     
                     <span class="about-stat-number">300+</span>
                     <span class="about-stat-label">семей получили помощь</span>
@@ -1219,6 +1388,9 @@
                     
                     <span class="about-stat-number">EFT/КПТ</span>
                     <span class="about-stat-label">научно доказанные методы</span>
+
+                    <span class="about-stat-number">💜</span>
+                    <span class="about-stat-label">гарантирую полную поддержку и принятие в любых ситуациях</span>
                     
                     <div style="margin-top: 30px; padding: 20px; background: #ffdab9; border-radius: 15px;">
                         <p style="font-size: 16px; color: #1a1a1a;">
@@ -1230,39 +1402,44 @@
             </div>
         </section>
 
-        <!-- FAQ -->
+        <!-- FAQ (ОБНОВЛЕННЫЙ) -->
         <section id="faq">
             <h2 class="section-title">Частые вопросы</h2>
             
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question">Как проходит первая консультация?</div>
-                    <div class="faq-answer">Знакомство, сбор запроса, определение целей терапии. Вы можете задать любые вопросы и понять, комфортно ли вам работать со мной.</div>
+                    <div class="faq-answer">Обычно это видеозвонок или очная встреча, где мы знакомимся, вы рассказываете о своей ситуации, а я помогаю наладить диалог и определить цели терапии. Вы можете задать любые вопросы и понять, комфортно ли вам работать со мной.</div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">Сколько нужно консультаций?</div>
-                    <div class="faq-answer">Для решения конкретной задачи обычно достаточно 5-10 встреч. Для глубокой проработки — от 15 сессий.</div>
+                    <div class="faq-answer">В личной терапии для достижения ощутимых результатов достаточно 7–10 встреч. Для глубокой проработки может потребоваться 10–20 сессий, хотя улучшение состояния вы можете заметить уже после первой встречи.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Как подготовиться к партнерским родам?</div>
-                    <div class="faq-answer">Я провожу специальные консультации, где рассказываю когда ехать в роддом, какие нужны документы, методы обезболивания и как партнер может помочь.</div>
+                    <div class="faq-question">Что делать, если партнер не хочет идти?</div>
+                    <div class="faq-answer">Можно прийти одному; часто после первых успехов партнер присоединяется. Я помогу вам разобраться в ситуации и найти подход к партнеру.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Можно ли анонимно?</div>
-                    <div class="faq-answer">Да, полная анонимность гарантируется. Можете не называть настоящего имени при желании.</div>
+                    <div class="faq-question">Как сформулировать запрос?</div>
+                    <div class="faq-answer">Я помогу вам с этим на первой встрече, но важно подумать заранее: что именно беспокоит, как давно, чего вы ждете от терапии. Даже если будет трудно сформулировать — это нормально, мы разберемся вместе.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Кто может быть партнером в родах?</div>
-                    <div class="faq-answer">Партнером может быть муж, подруга, сестра, мама — любой близкий человек, которому вы доверяете.</div>
+                    <div class="faq-question">Как долго длится семейная терапия?</div>
+                    <div class="faq-answer">Это зависит от сложности ситуации. Результаты могут появиться как быстро (3-5 встреч), так и после более длительной работы (10-15 встреч). Мы всегда можем обсудить динамику и при необходимости скорректировать план.</div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">Как отменить запись?</div>
                     <div class="faq-answer">Отмена возможна не позднее, чем за 24 часа до встречи.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли анонимно?</div>
+                    <div class="faq-answer">Да, полная анонимность гарантируется. Можете не называть настоящего имени при желании.</div>
                 </div>
             </div>
         </section>
@@ -1318,7 +1495,7 @@
                             <input type="email" name="email" class="form-input" placeholder="Email">
                         </div>
                         
-                        <!-- БЛОК С МЕССЕНДЖЕРАМИ -->
+                        <!-- БЛОК С МЕССЕНДЖЕРАМИ (ВОЗВРАЩЕН MAX) -->
                         <div style="margin-bottom: 20px;">
                             <div style="font-size: 18px; font-weight: 600; color: #6b4f8c; margin-bottom: 10px;">
                                 📱 Удобный способ связи:
@@ -1337,7 +1514,7 @@
                                     <span style="font-size: 18px;">ВКонтакте</span>
                                 </label>
 
-                                <!-- MAX -->
+                                <!-- MAX (ВОЗВРАЩЕН) -->
                                 <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
                                     <input type="checkbox" name="messenger" value="MAX" style="width: 18px; height: 18px;">
                                     <span style="font-size: 18px;">MAX</span>
@@ -1404,6 +1581,7 @@
 </body>
 
 </html>
+
 
 
 
