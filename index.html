@@ -176,8 +176,9 @@
         }
 
         .button.small {
-            font-size: 28px;
-            padding: 12px 30px;
+            font-size: 24px;
+            padding: 12px 25px;
+            margin-left: 0;
         }
 
         /* ЗАГОЛОВКИ РАЗДЕЛОВ */
@@ -289,6 +290,123 @@
             overflow-wrap: break-word;
         }
 
+        /* ПАКЕТЫ КОНСУЛЬТАЦИЙ */
+        .packages-section {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 35px;
+            margin: 40px 0;
+            border: 2px solid #ffdab9;
+        }
+
+        .packages-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #6b4f8c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(107, 79, 140, 0.1);
+            border-color: #6b4f8c;
+        }
+
+        .package-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .package-discount {
+            background: #ffdab9;
+            color: #6b4f8c;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .package-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #6b4f8c;
+            margin-bottom: 10px;
+        }
+
+        .package-price small {
+            font-size: 16px;
+            font-weight: 400;
+            color: #4a4a4a;
+        }
+
+        .package-price-old {
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .package-savings {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .package-price-per-session {
+            font-size: 14px;
+            color: #4a4a4a;
+            margin-top: 5px;
+        }
+
+        .package-desc {
+            font-size: 15px;
+            color: #4a4a4a;
+            line-height: 1.5;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .package-badge {
+            display: inline-block;
+            background: #6b4f8c;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
         /* ОБО МНЕ */
         .about {
             display: flex;
@@ -374,93 +492,6 @@
             display: block;
             word-wrap: break-word;
             overflow-wrap: break-word;
-        }
-
-        /* Пакеты консультаций */
-        .packages-section {
-            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
-            border-radius: 25px;
-            padding: 35px;
-            margin: 40px 0;
-            border: 2px solid #ffdab9;
-        }
-
-        .packages-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: #6b4f8c;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 25px;
-        }
-
-        .package-card {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .package-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(107, 79, 140, 0.1);
-        }
-
-        .package-name {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
-
-        .package-discount {
-            background: #ffdab9;
-            color: #6b4f8c;
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .package-price {
-            font-size: 28px;
-            font-weight: 800;
-            color: #6b4f8c;
-            margin-bottom: 10px;
-        }
-
-        .package-price small {
-            font-size: 16px;
-            font-weight: 400;
-            color: #4a4a4a;
-        }
-
-        .package-note {
-            font-size: 14px;
-            color: #4a4a4a;
-            margin-top: 15px;
-            font-style: italic;
-        }
-
-        .package-desc {
-            font-size: 16px;
-            color: #4a4a4a;
-            line-height: 1.5;
-            margin: 15px 0;
-            padding: 15px;
-            background: #f8f8f8;
-            border-radius: 15px;
-            text-align: left;
         }
 
         /* FAQ */
@@ -845,7 +876,7 @@
             }
             
             .button.small {
-                font-size: 24px;
+                font-size: 20px;
                 padding: 10px 20px;
             }
             
@@ -927,6 +958,8 @@
         <nav class="nav-menu">
             <a href="#home" class="nav-item active">ГЛАВНАЯ</a>
             <a href="#services" class="nav-item">УСЛУГИ И ЦЕНЫ</a>
+            <a href="packages.html" class="nav-item">ПАКЕТЫ</a>
+            <a href="packages-family.html" class="nav-item">СЕМЕЙНЫЕ ПАКЕТЫ</a>
             <a href="#online" class="nav-item">ОНЛАЙН</a>
             <a href="#offline" class="nav-item">ОЧНЫЙ ПРИЕМ</a>
             <a href="#about" class="nav-item">ОБО МНЕ</a>
@@ -978,7 +1011,7 @@
                 <a href="service-family.html" class="service-card">
                     <div class="service-icon">👨‍👩‍👧</div>
                     <div class="service-title">Семейное/парное консультирование</div>
-                    <div class="service-price">4 500 ₽ / 120 мин</div>
+                    <div class="service-price">5 000 ₽ / 120 мин</div>
                     <div class="service-desc">Восстановление доверия, кризисы, проблемы взаимоотношений, непонимание, постоянные ссоры, эмоциональная отстраненность, измена, ревность, конфликты, предразводное состояние.</div>
                     <span class="service-badge">120 минут</span>
                     <span class="service-badge">очно/онлайн</span>
@@ -996,7 +1029,7 @@
                 <a href="service-perinatal-prewedding.html" class="service-card">
                     <div class="service-icon">💍</div>
                     <div class="service-title">Предсвадебное консультирование</div>
-                    <div class="service-price">4 500 ₽ / 120 мин</div>
+                    <div class="service-price">5 000 ₽ / 120 мин</div>
                     <div class="service-desc">Консультирование пары, планирующей узаконить отношения. Обсуждение важных тем для избежания проблем в будущем.</div>
                     <span class="service-badge">120 минут</span>
                     <span class="service-badge">очно</span>
@@ -1033,8 +1066,6 @@
                     <span class="service-badge">онлайн</span>
                 </a>
 
-                <!-- Удален блок "Перинатальные утраты" по просьбе заказчика -->
-
                 <a href="service-perinatal-pregnancy.html" class="service-card">
                     <div class="service-icon">💝</div>
                     <div class="service-title">Сопровождение сложной беременности</div>
@@ -1068,22 +1099,108 @@
             </div>
         </section>
 
-        <!-- ПАКЕТЫ КОНСУЛЬТАЦИЙ (НОВЫЙ БЛОК) -->
+        <!-- ПАКЕТЫ ИНДИВИДУАЛЬНЫХ КОНСУЛЬТАЦИЙ -->
         <div class="packages-section">
-    <h3 class="packages-title">💝 Пакеты консультаций со скидкой</h3>
-    <div class="packages-grid">
-        <div class="package-card">
-            <div class="package-name">Пакет 5 консультаций</div>
-            <div class="package-discount">скидка 10%</div>
-            <div class="package-price">от ? ₽ <small>онлайн/очно</small></div>
-            <div class="package-price">до ? ₽ <small>онлайн/очно</small></div>
-            <div class="package-desc">
-                Даже краткосрочные психотерапевтические подходы предполагают не менее 10 консультаций, обычно требуется 10–20 сессий, чтобы получить результат, хотя улучшение состояния вы можете заметить уже после 5 консультаций, а иногда и после первой встречи с психологом.
+            <h3 class="packages-title">💝 Пакеты индивидуальных консультаций</h3>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-name">Стартовый</div>
+                    <div class="package-discount">скидка 5%</div>
+                    <div class="package-price">16 625 ₽ <small>за 5 сессий</small></div>
+                    <div class="package-price-old">17 500 ₽</div>
+                    <div class="package-price-per-session">3 325 ₽/сессия</div>
+                    <div class="package-savings">экономия 875 ₽</div>
+                    <div class="package-desc">
+                        5 консультаций по 90 минут. Срок действия: 2 месяца. Поддержка в мессенджерах, домашние задания.
+                    </div>
+                    <a href="packages.html#5" class="button small">Подробнее</a>
+                </div>
+                
+                <div class="package-card">
+                    <div class="package-name">Базовый</div>
+                    <div class="package-discount">скидка 10%</div>
+                    <div class="package-price">31 500 ₽ <small>за 10 сессий</small></div>
+                    <div class="package-price-old">35 000 ₽</div>
+                    <div class="package-price-per-session">3 150 ₽/сессия</div>
+                    <div class="package-savings">экономия 3 500 ₽</div>
+                    <div class="package-desc">
+                        10 консультаций по 90 минут. Срок действия: 4 месяца. Поддержка, материалы, устойчивые результаты.
+                    </div>
+                    <a href="packages.html#10" class="button small">Подробнее</a>
+                </div>
+                
+                <div class="package-card">
+                    <div class="package-badge">РЕКОМЕНДУЮ</div>
+                    <div class="package-name">Оптимальный</div>
+                    <div class="package-discount">скидка 15%</div>
+                    <div class="package-price">44 625 ₽ <small>за 15 сессий</small></div>
+                    <div class="package-price-old">52 500 ₽</div>
+                    <div class="package-price-per-session">2 975 ₽/сессия</div>
+                    <div class="package-savings">экономия 7 875 ₽</div>
+                    <div class="package-desc">
+                        15 консультаций по 90 минут. Срок действия: 6 месяцев. Приоритетная поддержка, личный кабинет.
+                    </div>
+                    <a href="packages.html#15" class="button small">Подробнее</a>
+                </div>
+                
+                <div class="package-card">
+                    <div class="package-name">Максимальный</div>
+                    <div class="package-discount">скидка 20%</div>
+                    <div class="package-price">56 000 ₽ <small>за 20 сессий</small></div>
+                    <div class="package-price-old">70 000 ₽</div>
+                    <div class="package-price-per-session">2 800 ₽/сессия</div>
+                    <div class="package-savings">экономия 14 000 ₽</div>
+                    <div class="package-desc">
+                        20 консультаций по 90 минут. Срок действия: 9 месяцев. Поддержка 24/7, бонусная сессия для партнера.
+                    </div>
+                    <a href="packages.html#20" class="button small">Подробнее</a>
+                </div>
             </div>
-            <a href="packages.html" class="button small" style="margin: 0 auto; font-size: 20px; padding: 10px 25px;">Подробнее о пакетах</a>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="packages.html" class="button small" style="background: #6b4f8c; color: white; box-shadow: 0 4px 0 #5a3e78;">Все индивидуальные пакеты</a>
+            </div>
         </div>
-    </div>
-</div>
+
+        <!-- ПАКЕТЫ СЕМЕЙНЫХ КОНСУЛЬТАЦИЙ -->
+        <div class="packages-section" style="border-color: #6b4f8c; background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);">
+            <h3 class="packages-title">👨‍👩‍👧 Пакеты семейных консультаций</h3>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-icon" style="font-size: 42px; margin-bottom: 10px;">💑</div>
+                    <div class="package-name">Семейный базовый</div>
+                    <div class="package-discount">скидка 3%</div>
+                    <div class="package-price">14 550 ₽ <small>за 3 сессии</small></div>
+                    <div class="package-price-old">15 000 ₽</div>
+                    <div class="package-price-per-session">4 850 ₽/сессия</div>
+                    <div class="package-savings">экономия 450 ₽</div>
+                    <div class="package-desc">
+                        3 семейные консультации по 120 минут. Срок действия: 1,5 месяца. Поддержка в мессенджерах, задания для пары.
+                    </div>
+                    <a href="packages-family.html#3" class="button small">Подробнее</a>
+                </div>
+                
+                <div class="package-card" style="border: 2px solid #6b4f8c;">
+                    <div class="package-badge">РЕКОМЕНДУЮ</div>
+                    <div class="package-icon" style="font-size: 42px; margin-bottom: 10px;">💝</div>
+                    <div class="package-name">Семейный оптимальный</div>
+                    <div class="package-discount">скидка 5%</div>
+                    <div class="package-price">23 750 ₽ <small>за 5 сессий</small></div>
+                    <div class="package-price-old">25 000 ₽</div>
+                    <div class="package-price-per-session">4 750 ₽/сессия</div>
+                    <div class="package-savings">экономия 1 250 ₽</div>
+                    <div class="package-desc">
+                        5 семейных консультаций по 120 минут. Срок действия: 2,5 месяца. Приоритетная поддержка, личный кабинет.
+                    </div>
+                    <a href="packages-family.html#5" class="button small">Подробнее</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="packages-family.html" class="button small" style="background: #6b4f8c; color: white; box-shadow: 0 4px 0 #5a3e78;">Все семейные пакеты</a>
+            </div>
+            <p style="text-align: center; margin-top: 15px; font-size: 16px; color: #4a4a4a;">
+                Разовая семейная консультация: <strong>5 000 ₽ / 120 мин</strong>
+            </p>
+        </div>
 
         <!-- ОНЛАЙН КОНСУЛЬТАЦИЯ -->
         <section id="online">
@@ -1105,8 +1222,8 @@
                     </div>
                     <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
                         <div style="font-size: 36px; margin-bottom: 10px;">💑</div>
-                        <div style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">Семейное консультирование пары</div>
-                        <div style="color: #6b4f8c; font-size: 22px; font-weight: 700;">4 500 ₽</div>
+                        <div style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">Семейное онлайн</div>
+                        <div style="color: #6b4f8c; font-size: 22px; font-weight: 700;">5 000 ₽</div>
                         <div style="color: #4a4a4a;">120 минут</div>
                     </div>
                     <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
@@ -1154,7 +1271,7 @@
                             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px;">
                                 <div style="background: #f8f8f8; padding: 15px; border-radius: 15px; text-align: center;">
                                     <div style="font-weight: 700;">Семейное/парное</div>
-                                    <div style="color: #6b4f8c; font-size: 20px; font-weight: 700;">4 500 ₽</div>
+                                    <div style="color: #6b4f8c; font-size: 20px; font-weight: 700;">5 000 ₽</div>
                                     <div style="color: #4a4a4a; font-size: 14px;">120 мин</div>
                                 </div>
                                 <div style="background: #f8f8f8; padding: 15px; border-radius: 15px; text-align: center;">
@@ -1177,7 +1294,7 @@
                             <!-- Предсвадебное (отдельно) -->
                             <div style="background: #f8f8f8; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 25px;">
                                 <div style="font-weight: 700;">Предсвадебное консультирование</div>
-                                <div style="color: #6b4f8c; font-size: 20px; font-weight: 700;">4 500 ₽</div>
+                                <div style="color: #6b4f8c; font-size: 20px; font-weight: 700;">5 000 ₽</div>
                                 <div style="color: #4a4a4a; font-size: 14px;">120 мин</div>
                             </div>
                             
@@ -1200,7 +1317,7 @@
                     <!-- Приветствие -->
                     <div style="background: linear-gradient(135deg, #ffdab9 0%, #ffe9d4 100%); padding: 25px; border-radius: 20px; margin-bottom: 25px;">
                         <p style="font-size: 20px; color: #1a1a1a; line-height: 1.6; font-style: italic;">
-                            "Моя миссия – помогать семьям выстраивать гармоничные отношения, преодолевать сложности и находить радость в совместной жизни."
+                            "Моя миссия – помогать семьям выстраивать гармоничные отношения, преодолевать сложности и находить радость в совместной жизни".
                         </p>
                     </div>
                     
@@ -1388,9 +1505,6 @@
                     
                     <span class="about-stat-number">EFT/КПТ</span>
                     <span class="about-stat-label">научно доказанные методы</span>
-
-                    <span class="about-stat-number">💜</span>
-                    <span class="about-stat-label">гарантирую полную поддержку и принятие в любых ситуациях</span>
                     
                     <div style="margin-top: 30px; padding: 20px; background: #ffdab9; border-radius: 15px;">
                         <p style="font-size: 16px; color: #1a1a1a;">
@@ -1402,7 +1516,7 @@
             </div>
         </section>
 
-        <!-- FAQ (ОБНОВЛЕННЫЙ) -->
+        <!-- FAQ -->
         <section id="faq">
             <h2 class="section-title">Частые вопросы</h2>
             
@@ -1458,7 +1572,7 @@
                     
                     <div class="contact-item">
                         <span class="contact-label">✉️ Email</span>
-                        <div class="contact-value">psycholog@plesovskikh.ru</div>
+                        <div class="contact-value">plesovskyh@yandex.ru</div>
                     </div>
                     
                     <div class="contact-item">
@@ -1495,7 +1609,7 @@
                             <input type="email" name="email" class="form-input" placeholder="Email">
                         </div>
                         
-                        <!-- БЛОК С МЕССЕНДЖЕРАМИ (ВОЗВРАЩЕН MAX) -->
+                        <!-- БЛОК С МЕССЕНДЖЕРАМИ -->
                         <div style="margin-bottom: 20px;">
                             <div style="font-size: 18px; font-weight: 600; color: #6b4f8c; margin-bottom: 10px;">
                                 📱 Удобный способ связи:
@@ -1514,7 +1628,7 @@
                                     <span style="font-size: 18px;">ВКонтакте</span>
                                 </label>
 
-                                <!-- MAX (ВОЗВРАЩЕН) -->
+                                <!-- MAX -->
                                 <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
                                     <input type="checkbox" name="messenger" value="MAX" style="width: 18px; height: 18px;">
                                     <span style="font-size: 18px;">MAX</span>
@@ -1574,14 +1688,10 @@
 
         <!-- ФУТЕР -->
         <div class="footer">
-            <p>© 2024 Оксана Плесовских — Медицинский, семейный и перинатальный психолог | Вологда</p>
+            <p>© 2026 Оксана Плесовских — Медицинский, семейный и перинатальный психолог | Вологда</p>
             <p style="margin-top: 10px; font-size: 16px;">Очно и онлайн</p>
         </div>
     </div>
 </body>
 
 </html>
-
-
-
-
